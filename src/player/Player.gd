@@ -26,7 +26,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
     #simple state machine. I could do the non linear gdquest multinode setup but I have 2 days.
-    print(touching_root)
     match _state:
         States.ON_GROUND:
             state_on_ground(delta)
