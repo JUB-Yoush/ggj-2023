@@ -1,10 +1,18 @@
 -- TODO --
 - add rocks
+	- rocks sit on  roots and drop once passed over (player leaves area)
+	- rocks drop and hit anything below them on that root (a line of enemies, perhaps?)
 - add ants
 	~~aggro ants start to move towards the players direction~~
 	- if there is a ledge it will try to jump off it 
 	- if it crosses a root it will start to climb on it 
 	- if player is above them they will wait a bit and then jump at them (can also climb roots if touching)
+
+- one way platforms easy to make iirc
+- score system
+- time system
+- design level 
+- design spawn locations
 
 -- DONE --
 - ~~basic platformer controller~~

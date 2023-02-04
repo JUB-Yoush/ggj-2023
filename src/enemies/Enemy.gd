@@ -88,6 +88,7 @@ func jump_at_player():
 	yield(get_tree().create_timer(jump_delay_time),"timeout")
 	print("jumped")
 	velocity.y = jump_speed
+	emit_signal("done_jump")
 
 
 
