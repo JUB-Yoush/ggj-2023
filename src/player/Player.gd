@@ -105,3 +105,6 @@ func jump() -> void:
 # ------ async methods (collisions and such)-----
 func on_hitbox_area_entered(area:Area2D):
     pass
+
+func take_damage():
+    pass

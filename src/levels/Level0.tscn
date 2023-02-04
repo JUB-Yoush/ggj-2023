@@ -65,10 +65,10 @@ position = Vector2( 0, -57.5 )
 position = Vector2( 40, 232 )
 
 [node name="BoundingArea" parent="." instance=ExtResource( 5 )]
-position = Vector2( 205, 230 )
+position = Vector2( 187, 230 )
 
 [node name="BoundingArea2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 92, 231 )
+position = Vector2( 112, 231 )
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 130, 235 )
