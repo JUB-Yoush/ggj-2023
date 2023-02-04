@@ -4,9 +4,9 @@
 [ext_resource path="res://src/lvl-elements/Root.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3, 32 )
+extents = Vector2( 3, 101.5 )
 
-[node name="Root" type="Area2D"]
+[node name="Root" type="Area2D" groups=["roots"]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

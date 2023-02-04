@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+class_name Player
 # ---- child nodes ------
 onready var hitbox = $Hitbox
 
@@ -8,6 +8,8 @@ var velocity:= Vector2.ZERO
 var input_vector := Vector2.ZERO
 var jump_speed:= -80.0
 var gravity := 200
+
+var touching_root := false
 
 enum States {
     ON_GROUND,
@@ -18,12 +20,13 @@ var _state = States.ON_GROUND
 
 func _ready() -> void:
     hitbox.connect("area_entered",self,"on_hitbox_area_entered")
+    print('game on')
     
 
-    pass
 
 func _physics_process(delta: float) -> void:
     #simple state machine. I could do the non linear gdquest multinode setup but I have 2 days.
+    print(touching_root)
     match _state:
         States.ON_GROUND:
             state_on_ground(delta)
@@ -45,6 +48,7 @@ func change_state(new_state):
 
 func state_on_ground(delta) -> void:
     get_input()
+    climb()
     velocity.x = input_vector.x * speed
     velocity.y += gravity * delta
 
@@ -56,6 +60,7 @@ func state_on_ground(delta) -> void:
 
 func state_in_air(delta) -> void:
     get_input()
+    climb()
     velocity.y += gravity * delta
     velocity = move_and_slide(velocity, Vector2.UP)
 
@@ -65,15 +70,17 @@ func state_in_air(delta) -> void:
 
 func state_climbing(delta) -> void:
     get_input()
-    return
 
 # ------------------------ STATE COMPONENTS ------------------------------------
 
 func get_input() -> void:
     input_vector = Input.get_vector("left","right","up","down")
 
+func climb() -> void:
+    if touching_root and input_vector.y < 0:
+        change_state(States.CLIMBING)
+
 
 # ------ async methods (collisions and such)-----
 func on_hitbox_area_entered(area:Area2D):
-    if area.is_in_group("root") and input_vector.y < 0:
-        change_state(States.CLIMBING)
+    print('bongus')

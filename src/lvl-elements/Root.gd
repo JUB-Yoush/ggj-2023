@@ -1,16 +1,18 @@
 extends Area2D
 
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	connect("area_entered",self,"on_area_entered")
+	connect("area_exited",self,"on_area_exited")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+
+func on_area_entered(area:Area2D)-> void:
+	if area.is_in_group("player"): 
+		area.get_parent().touching_root = true
+
+
+func on_area_exited(area:Area2D)-> void:
+	if area.is_in_group("player"): 
+		area.get_parent().touching_root = false 
