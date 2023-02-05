@@ -14,6 +14,9 @@
 - design level 
 - design spawn locations
 
+-- THINGS 2 FIX --
+- why isn't is_on_floor returning true
+
 -- DONE --
 - ~~basic platformer controller~~
 - ~~simple finite state machine:~~

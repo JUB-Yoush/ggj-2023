@@ -9,10 +9,10 @@ func _ready() -> void:
 
 
 func on_area_entered(area:Area2D)-> void:
-	if area.is_in_group("player"): 
+	if area.is_in_group("player") or area.is_in_group("enemy"): 
 		area.get_parent().touching_root = true
 
 
 func on_area_exited(area:Area2D)-> void:
-	if area.is_in_group("player"): 
+	if area.is_in_group("player") or area.is_in_group("enemy"): 
 		area.get_parent().touching_root = false 

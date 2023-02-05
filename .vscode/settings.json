@@ -1,3 +1,4 @@
 {
-    "godot_tools.editor_path": "/usr/local/games/godot"
+    "godot_tools.editor_path": "/usr/local/games/godot",
+    "workbench.colorTheme": "GDScript"
 }
