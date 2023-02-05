@@ -58,7 +58,7 @@ func on_aggroRange_area_exited(area:Area2D):
 func flip_dir():
 	dir.x = dir.x * -1
 	$PDetector/CollisionShape2D.position.x = 21 * dir.x
-	#FLIP THE DIRECTION IT'S GOING
+	$Sprite.flip_h = !$Sprite.flip_h
 	pass
 
 func die():
@@ -75,7 +75,6 @@ func _physics_process(delta: float) -> void:
 			states_climbing(delta)
 
 func jump_at_player():		
-	print("jumped")
 	velocity.y = jump_speed
 	jumping = false
 
@@ -106,7 +105,6 @@ func states_aggro(delta) -> void:
 	velocity = move_and_slide(velocity,Vector2.UP)  
 
 func states_climbing(delta) -> void:
-	print(is_on_ceiling())
 	velocity.x = 0
 	velocity.y = climb_speed * dir.y
 	if is_on_ceiling():
