@@ -5,7 +5,7 @@
 
 [sub_resource type="Animation" id=3]
 resource_name = "walk"
-length = 0.2
+length = 0.4
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -37,7 +37,6 @@ anims/walk = SubResource( 3 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 2
-frame = 1
 region_enabled = true
 region_rect = Rect2( 64, 0, 64, 16 )
 

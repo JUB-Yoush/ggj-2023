@@ -6,7 +6,7 @@ onready var hitbox = $Hitbox
 var speed:= 50.0 
 var velocity:= Vector2.ZERO
 var input_vector := Vector2.ZERO
-var jump_speed:= -90.0
+var jump_speed:= -120.0
 var jump_drift := 20.0
 var gravity := 200.0
 var climb_speed:= 70.0
@@ -104,6 +104,8 @@ func jump() -> void:
 
 # ------ async methods (collisions and such)-----
 func on_hitbox_area_entered(area:Area2D):
+    if area.is_in_group("enemy"):
+        get_tree().reload_current_scene() 
     pass
 
 func take_damage():

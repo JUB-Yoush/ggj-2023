@@ -42,7 +42,8 @@ func on_hitbox_entered(area:Area2D) -> void:
 	if area.is_in_group("bounding-area") and _state != States.AGGRO:
 		flip_dir()
 	if area.is_in_group("rock"):
-		die()
+		if area.falling == true:
+			die()
 	if area.is_in_group("player"):
 		area.get_parent().take_damage()
 
@@ -62,8 +63,7 @@ func flip_dir():
 	pass
 
 func die():
-	#die
-	pass
+	queue_free()
 
 func _physics_process(delta: float) -> void:
 	match _state:

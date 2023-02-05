@@ -10,13 +10,13 @@ extents = Vector2( 4, 4 )
 extents = Vector2( 6, 5 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 19.625, 14.75 )
+extents = Vector2( 15.3125, 27.375 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "trigger_aggro"
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 50.01
+radius = 45.0
 
 [node name="Enemy" type="KinematicBody2D" groups=["enemy"]]
 collision_layer = 4
@@ -30,20 +30,17 @@ region_enabled = true
 region_rect = Rect2( 64, 40, 8, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
 
 [node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
 shape = SubResource( 2 )
 
 [node name="PDetector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PDetector"]
-visible = false
-position = Vector2( 13, -10 )
+position = Vector2( 8.6875, -22.625 )
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -52,7 +49,6 @@ anims/trigger_aggro = SubResource( 4 )
 [node name="AggroRange" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AggroRange"]
-visible = false
 shape = SubResource( 5 )
 
 [node name="JumpDelay" type="Timer" parent="."]
