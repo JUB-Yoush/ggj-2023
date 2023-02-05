@@ -26,6 +26,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+    if input_vector.x == -1:
+        $Sprite.flip_h = true
+    elif input_vector.x == 1:
+        $Sprite.flip_h = false
+
     #simple state machine. I could do the non linear gdquest multinode setup but I have 2 days.
     match _state:
         States.ON_GROUND:
